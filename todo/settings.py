@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tasks',
-    'about',
-    'users',
+    ## ADICIONANDO A APLICAÇÃO INSTALADA PARA AS FUNCÕES DA API REST
     'rest_framework',
+    ## ADICIONANDO A APLICAÇÃO INSTALADA PARA HABILITAR O CORS
     'corsheaders',
 ]
 
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ## APLICANDO OS MIDDLEWARES DE AUTENTICAÇAO COM CORS
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
@@ -131,4 +132,5 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGUT_REDIRECT_URL = 'accounts/login/'
 
+## HABILITANDO A AUTENTICAÇÃO COM CORS PARA TODAS AS ROTAS
 CORS_ORIGIN_ALLOW_ALL = True
