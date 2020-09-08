@@ -1,0 +1,6 @@
+{
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.pythonPath": "D:\\Cursos\\learning\\testeVenv\\myvenv\\Scripts\\python.exe",
+  "editor.tabSize": 4
+}
