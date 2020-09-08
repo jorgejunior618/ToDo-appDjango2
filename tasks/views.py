@@ -1,24 +1,22 @@
 from rest_framework.decorators import api_view
+## CONSTANTE STATUS CONTEM AS RESPOSTAS HTTP DEVIDAS PARA RETORNO DOS DADOS
 from rest_framework import generics, status
 from django.core.exceptions import ObjectDoesNotExist
-from django.shortcuts import render, get_object_or_404
+## FUNÇÃO QUE RETORNA OS DADOS EM JSON
 from django.http import JsonResponse
 import json
 
 from .models import Task
 from .serializers import TaskSerializer
 
+## CHAVE ```@api_view(["METHOD"])``` PARA DEFINIR A REQUISIÇÃO
+# QUE SERÁ FEITA AO BANCO DE DADOS
 @api_view(['GET'])
 def taskList(request):
     tasks = Task.objects.all()
     serializer = TaskSerializer(tasks, many=True)
     JSONObj = JsonResponse({'tasks': serializer.data}, safe=False, status=status.HTTP_200_OK)
     return JSONObj
-
-# SEM USO PRA API
-def taskView(request, id):
-    task = get_object_or_404(Task, pk=id)
-    return render(request, 'tasks/task.html', {'task': task})
 
 @api_view(['POST'])
 def newTask(request):
